@@ -13,6 +13,7 @@ public class Product implements Serializable{
     private String category;
     private long unitInStock;
     private String condition; // 신상품 or 중고품 or 재생품
+    private String rootImage;
     public Product(){
         super();
     }
@@ -85,6 +86,14 @@ public class Product implements Serializable{
 
     public void setCondition(String condition) {
         this.condition = condition;
+    }
+    
+     public void setRootImage(String rootImage) {
+        this.rootImage = rootImage;
+    }
+
+    public String getRootImage() {
+        return rootImage;
     }
 }
 
