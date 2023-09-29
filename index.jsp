@@ -8,7 +8,16 @@
 
 <meta charset="UTF-8">
 <%@ page contentType="text/html; charset=utf-8"%>
-
+<style>
+    div.col-md-4 img{
+        border: 0.5px solid black;
+        width:350px;
+        height: 350px;
+    }    
+    div .card bg-dark{
+        background-color: white;
+    }
+</style>
 <title>Welcome</title>
 </head>
 <body>	<%-- JSP 주석 처리 --%>
