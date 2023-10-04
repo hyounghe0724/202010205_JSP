@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="dto.Product"%>
+<%@ page errorPage = "exception/main_server_downtime.jsp" %>
 <jsp:useBean id="productDAO" class="dao.ProductRepository" scope="session" />
 
 <%! String greeting = "쌈성.COM에 오신 것을 환경합니다";
@@ -41,6 +42,8 @@
             <h3><%= product.getPname()%></h3>
             <p><%= product.getDescription()%></p>
             <p><%=product.getUnitPrice() %>원</p>
+            <p><a href="product_detail.jsp?id=<%=product.getProductId()%>" class="btn btn-secondary" role="button"> 상품 상세 정보 &raquo;</a>
+
         </div>
         <%
 				}
