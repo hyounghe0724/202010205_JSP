@@ -1,22 +1,25 @@
 package example;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class ShopTime {
     public String timenow(){
-        Date day = new Date();
-        String am_pm;
-        int hour = day.getHours();
-        int minute = day.getMinutes();
-        int second = day.getSeconds();
-        if (hour / 12 == 0) {
-            am_pm = "AM";
-        } else {
-            am_pm = "PM";
-            hour = hour - 12;
-        }
-        String CT = hour + ":" + minute + ":" + second + " " + am_pm;
 
+
+        LocalDate SeoulNow = LocalDate.now(ZoneId.of("Asia/Seoul"));
+        LocalTime now = LocalTime.now();
         
-        return CT;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH시 mm분 ss초");
+ 
+        String formatedNow = now.format(formatter);
+        int foriegn_time = now.getHour();
+        int local_time = foriegn_time + 9;
+        if(local_time > 24){
+            local_time -= 24; 
+        }
+        return String.valueOf(SeoulNow) + " " + String.valueOf(local_time) + ":" + String.valueOf(now.getMinute()) + ":" + String.valueOf(now.getSecond());
+        
     }
 }

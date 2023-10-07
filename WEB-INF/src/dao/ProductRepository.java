@@ -1,7 +1,7 @@
 package dao;//package dao;
 import dto.Product;
 import java.util.ArrayList;
-public class ProductRepository {
+public class ProductRepository { // 인스턴스화, 객체 생성, 데이터 생성
     private ArrayList<Product> listOfProducts = new ArrayList<Product>();
 
     public ProductRepository(){
