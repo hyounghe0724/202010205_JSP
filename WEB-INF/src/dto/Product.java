@@ -95,5 +95,16 @@ public class Product implements Serializable{ // 클래스 정의, set,get 메�
     public String getRootImage() {
         return rootImage;
     }
+    private String filename; 	// 파일 이름 변수
+ 
+
+    public void setFilename(String filename) { // 파일 이름 설정
+        this.filename = filename;
+    }
+
+     public String getFilename() { // 파일 이름 리턴
+        return filename;
+    }
+
 }
 

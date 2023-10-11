@@ -1,5 +1,3 @@
-<%@ page errorPage = "exception/product_not_found.jsp" %>
-
 <html>
 <head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -68,10 +66,10 @@
 	<footer class="container">
 		<p>&copy; WebMarket</p>
 	</footer> -->
-    <%@ include file="top_banner.jsp" %>
-    <%@ include file="top_menu.jsp" %>
-	<%@ include file="body_main.jsp" %>	
-    <%@ include file="footer.jsp" %>
+    <%-- include file="top_banner_ad.jsp" --%>
+    <%@ include file="top_menu_ad.jsp" %>
+	<%@ include file="body_main_ad.jsp" %>	
+    <%@ include file="footer_ad.jsp" %>
 
     
 </body>
