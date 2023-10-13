@@ -37,7 +37,6 @@
                         </div>
                         </div> -->
             
-            <img src= '<%=product.getRootImage() %>'>
             <img src="image/product/<%=product.getFilename()%>" class="card-img" alt="...">
             <h3><%= product.getPname()%></h3>
             <p><%= product.getDescription()%></p>

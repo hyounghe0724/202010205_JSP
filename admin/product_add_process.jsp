@@ -56,5 +56,5 @@
 
 	dao.addProduct(newProduct);
 
-	response.sendRedirect("index_ad.jsp"); // 언제 redirect?
+	response.sendRedirect("index_ad.jsp"); // 언제 redirect 사용 하는지
 %>
