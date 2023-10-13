@@ -5,7 +5,7 @@ public class ProductRepository { // 인스턴스화, 객체 생성, 데이터 �
   
     private   ArrayList<Product> listOfProducts = new ArrayList<Product>();
 
-    private ProductRepository(){
+    public ProductRepository(){
         Product phone = new Product("P1234", "Galaxy Z Flip 5", 1300000);
         phone.setFilename("");
         phone.setDescription("6.7-Inch (170.3 mm) 22:9 Ratio 2640 × 1080 Infinity Flex Display");

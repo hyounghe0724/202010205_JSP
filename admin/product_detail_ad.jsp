@@ -37,7 +37,7 @@
 				<p><b>재고 수</b> : <%=product.getUnitInStock()%>
 				<h4><%=product.getUnitPrice()%>원</h4>
 <div class="card bg-dark text-white">
-                    <img src="../image/product/<%=product.getRootImage()%>" class="card-img" alt="...">
+                    <img src="../image/product/<%=product.getFilename()%>" class="card-img" alt="...">
                     <div class="card-img-overlay">
                     <p class="card-text">출처 : 구글 검색</p>
                     </div>
@@ -49,6 +49,6 @@
             
 
 	</div>
-    <%@ include file="footer.jsp" %>
+    <%@ include file="../footer.jsp" %>
 </body>
 </html>
