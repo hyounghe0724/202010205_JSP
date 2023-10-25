@@ -13,6 +13,7 @@
 				<%=greeting%>
 			</h1>
 		</div>
+
 	</div>	
 <!--톰브라운 에디션 배너 -->
 <div class="card bg	" > 
