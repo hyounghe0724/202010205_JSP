@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=utf-8"%>
+<%@ page contentType="text/html;charset=utf-8"%>
 
 <div class="text-center" style="padding-top: 15px;">
     <a href="https://www.samsung.com/sec/pc/" target="_blank" >
