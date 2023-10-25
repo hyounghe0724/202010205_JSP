@@ -1,11 +1,11 @@
 package dao;//package dao;
 import dto.Product;
 import java.util.ArrayList;
-public class ProductRepository { // 인스턴스화, 객체 생성, 데이터 생성 이 class는 자바 빈즈 아님
+public class ProductRepository { // 인스턴스화, 객체 생성, 데이터 생성 이 class는 자바 빈즈 ㅇㅋ serialized 는 필수 항목 아님
   
     private   ArrayList<Product> listOfProducts = new ArrayList<Product>();
 
-    public ProductRepository(){
+    private ProductRepository(){
         Product phone = new Product("P1234", "Galaxy Z Flip 5", 1300000);
         phone.setFilename("");
         phone.setDescription("6.7-Inch (170.3 mm) 22:9 Ratio 2640 × 1080 Infinity Flex Display");

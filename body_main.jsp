@@ -1,8 +1,10 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="dto.Product"%>
-<jsp:useBean id="productDAO" class="dao.ProductRepository" scope="session" />
-
+<%@ page import="dao.ProductRepository" %>
+<%-- <jsp:useBean id="productDAO" class="dao.ProductRepository" scope="session" />
+--> 
+    
 <%! String greeting = "쌈성.COM에 오신 것을 환경합니다";
       String tagline = "하단 페이지 : 확인";%>
 	<div class="jumbotron">
@@ -21,7 +23,8 @@
     </div>
 <!-- 톰브라인 에디션 배너-->
     <%
-	ArrayList<Product> listOfProducts = productDAO.getAllProducts(); // 리스트에 상품 전체 정보를 얻어온다.
+    ProductRepository instance = ProductRepository.getInstance();
+	ArrayList<Product> listOfProducts = instance.getAllProducts(); // 리스트에 상품 전체 정보를 얻어온다.
 %> 
 <div class="container">
     <div class="row" align="center">
