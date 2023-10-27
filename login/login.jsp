@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=utf-8"%>
+<%@ page contentType="text/html;charset=utf-8"%>
 <html>
 <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -26,11 +26,11 @@
 			%> 
 <form class="form-signin" action="j_security_check" method="post">
 			<div class="form-group">
-				<label for="inputUserName" class="sr-only">User Name</label> 
+				<label for="j_username" class="sr-only">User Name</label> 
 				<input type="text" class="form-control" placeholder="ID" name='j_username' required autofocus>
 			</div>
 			<div class="form-group">
-				<label for="inputPassword" class="sr-only">Password</label> 
+				<label for="j_password" class="sr-only">Password</label> 
 				<input  type="password" class="form-control" placeholder="Password" name='j_password' required>
 			</div>
 			<button class="btn btn btn-lg btn-success btn-block" type="submit">로그인</button>

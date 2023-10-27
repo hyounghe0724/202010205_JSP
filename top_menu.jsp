@@ -25,7 +25,7 @@
     <button class="btn " style="background-color: white;">
             고객센터
     </button>
-   <a class="navbar-brand" href="admin/index_ad.jsp">
+   <a class="navbar-brand" href="admin/product_add.jsp">
             관리자 모드
     </a>
     

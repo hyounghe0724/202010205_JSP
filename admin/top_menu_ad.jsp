@@ -1,5 +1,4 @@
-<%@ page contentType="text/html; charset=utf-8"%>
-
+<%@ page contentType="text/html;charset=utf-8"%>
 <nav class="navbar navbar-expand  navbar-white bg-white">
     <div style="margin-right: 20px; ">
         <img src="https://www.samsung.com/sec/static/_images/gnb/logo-gnb.svg" class="img-fluid" alt="main_image">

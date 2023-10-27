@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=utf-8"%>
+<%@ page contentType="text/html;charset=utf-8"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="dao.ProductRepository"%>
 <%@ page import="dto.Product"%>
