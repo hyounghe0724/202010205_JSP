@@ -14,6 +14,9 @@ public class Product implements Serializable{ // 클래스 정의, set,get 메�
     private long unitInStock;
     private String condition; // 신상품 or 중고품 or 재생품
     private String rootImage;
+    private int quantity;	//장바구니에 담은 개수
+    
+    
     public Product(){
         super();
     }
@@ -105,6 +108,14 @@ public class Product implements Serializable{ // 클래스 정의, set,get 메�
      public String getFilename() { // 파일 이름 리턴
         return filename;
     }
+    public int getQuantity() {
+	return quantity;
+}
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+}
+
 
 }
 

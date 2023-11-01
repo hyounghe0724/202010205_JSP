@@ -17,7 +17,7 @@
 	</div>
    <div >
         <button  class="btn " style="background-color: white; ">
-            로그인 
+            <a href="../admin/product_add.jsp" >로그인 </a>
     </button>
     <button class="btn " style="background-color: white;">
             회원가입 
@@ -25,9 +25,11 @@
     <button class="btn " style="background-color: white;">
             고객센터
     </button>
-   <a class="navbar-brand" href="admin/product_add.jsp">
+    <button>
+         <a class="navbar-brand" href="../admin/product_add.jsp">
             관리자 모드
     </a>
+       </button>
     
     </div>
 	</nav>
