@@ -26,7 +26,7 @@
             고객센터
     </button>
     <button>
-         <a class="navbar-brand" href="../admin/product_add.jsp">
+         <a class="btn " href="../admin/product_add.jsp">
             관리자 모드
     </a>
        </button>
