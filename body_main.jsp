@@ -2,6 +2,9 @@
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="dto.Product"%>
 //<%@ page import="dao.ProductRepository" %>
+<%@ page import="java.sql.*"%>
+<%@ include file="db/db_conn.jsp"%>
+
 <jsp:useBean id="productDAO" class="dao.ProductRepository" scope="session" />
  
     
@@ -29,9 +32,13 @@
 %> 
 <div class="container">
     <div class="row" align="center">
-        <% for (int i = 0; i<listOfProducts.size(); i++){
-            Product product = listOfProducts.get(i);
-        %>
+        <%
+		String sql = "select * from product"; // 조회
+		pstmt = conn.prepareStatement(sql); // 연결 생성
+		rs = pstmt.executeQuery(); // 쿼리 실행
+		while (rs.next()) { // 결과 ResultSet 객체 반복
+	%>
+
         <div class="col-md-4">
             <!-- <div class="card bg-dark text-white">
                         <img src="image/product/<%-- product.getProductId() --%>.jpg" class="card-img" alt="...">
@@ -41,16 +48,24 @@
                         </div>
                         </div> -->
             
-            <img src="image/product/<%=product.getFilename()%>" class="card-img" alt="...">
-            <h3><%= product.getPname()%></h3>
-            <p><%= product.getDescription()%></p>
-            <p><%=product.getUnitPrice() %>원</p>
-            <p><a href="product_detail.jsp?id=<%=product.getProductId()%>" class="btn btn-secondary" role="button"> 상품 상세 정보 &raquo;</a>
+            <img src="image/product/<%=rs.getString("p_fileName")%>" class="card-img" alt="...">
+            <h3><%=rs.getString("p_name")%></h3>
+		    <p><%=rs.getString("p_description")%>
+		    <p><%=rs.getString("p_UnitPrice")%>원
+		    <p><a href="product_detail.jsp?id=<%=rs.getString("p_id")%>" class="btn btn-secondary" role="button"> 상세 정보 &raquo;></a>
+
 
         </div>
         <%
-				}
-		%>
+			} // 반복문 끝난 이후 db 연결 종료	
+		if (rs != null)
+			rs.close();
+ 		if (pstmt != null)
+ 			pstmt.close();
+ 		if (conn != null)
+			conn.close();
+	%>
+
 
     </div>
     <hr>

@@ -16,6 +16,9 @@
      </div>
 	</div>
    <div >
+    <button  class="btn " style="background-color: white; ">
+        <a class="navbar-brand" href="index.jsp">상품목록(기본 홈)</a>
+    </button>
         <button  class="btn " style="background-color: white; ">
             <a href="../admin/product_add.jsp" >로그인 </a>
     </button>

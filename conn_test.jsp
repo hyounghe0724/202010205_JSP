@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=utf-8"%>
+<%@ page contentType="text/html;charset=utf-8"%>
 <%@ page import = "java.sql.*" %> 
 <html> 
 <head>
@@ -11,8 +11,8 @@
     Boolean conn_state = false;
 
 	Class.forName("com.mysql.jdbc.Driver");
-	String myUrl = "jdbc:mysql://localhost/데이터베이스 이름";
-	Connection conn = DriverManager.getConnection(myUrl, "root", “패스워드");
+	String myUrl = "jdbc:mysql://localhost/ssamsung_20201025";
+	Connection conn = DriverManager.getConnection(myUrl, "root", "123123");
 	try {
         	stm = conn.createStatement();
             conn_state = true;
