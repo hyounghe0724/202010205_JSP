@@ -1,9 +1,12 @@
-<%@ page contentType="text/html; charset=utf-8"%>
+<%@ page contentType="text/html;charset=utf-8"%>
 <%@ page import="dto.Product"%>
 <%@ page import="dao.ProductRepository"%>
 <%@ page import="com.oreilly.servlet.*"%>
 <%@ page import="com.oreilly.servlet.multipart.*"%>
 <%@ page import="java.util.Enumeration" %>
+<%@ page import="java.sql.*"%>
+<%@ include file="../db/db_conn.jsp" %>
+
 
 
 <%
@@ -48,7 +51,7 @@
    String fname = (String) files.nextElement();
    String fileName = multi.getFilesystemName(fname);
 
-String sql = "insert into product values(productId,name,unitPrice,description,manufacturer,category,unitsInStock,condition,fileName)";
+String sql = "insert into product values(?,?,?,?,?,?,?,?,?)";
 	pstmt = conn.prepareStatement(sql); // 쿼리문 몸체만 넣기
 	pstmt.setString(1, productId); // 각 필드 설정 - ? 순서대로
 	pstmt.setString(2, name);
@@ -76,7 +79,7 @@ String sql = "insert into product values(productId,name,unitPrice,description,ma
    newProduct.setDescription(description);
    newProduct.setManufacturer(manufacturer);
    newProduct.setCategory(category);
-   newProduct.setUnitsInStock(stock);
+   newProduct.setUnitInStock(stock);
    newProduct.setCondition(condition);
    newProduct.setFilename(fileName);
 
