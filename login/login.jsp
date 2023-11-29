@@ -33,8 +33,11 @@
 				<label for="j_password" class="sr-only">Password</label> 
 				<input  type="password" class="form-control" placeholder="Password" name='j_password' required>
 			</div>
-			<button class="btn btn btn-lg btn-success btn-block" type="submit">로그인</button>
+			<button class="btn btn btn-lg btn-success btn-block" type="submit">로그인</button>		
+
 		</form>
+        <a href='#' class="btn btn btn-lg btn-success btn-block" type="submit">회원가입</a>
+
 	</div>
 </div>
 </body>

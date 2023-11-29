@@ -26,7 +26,7 @@
             <a class="navbar-brand" href="/BoardListAction.do?pageNum=1">게시판(고객센터)</a>
        </button>
     <button class="btn " style="background-color: white;">
-            회원가입 
+            <a href="#"></a>
     </button>
     <button class="btn " style="background-color: white;">
             고객센터
@@ -36,6 +36,7 @@
             관리자 모드
     </a>
        </button>
+       
     
     </div>
 	</nav>
