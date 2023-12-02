@@ -7,11 +7,13 @@
     String sql = "delete  from member where id = ?";
     pstmt = conn.prepareStatement(sql);
     pstmt.setString(1, userId);
-    rs = pstmt.executeQuery();
+    pstmt.executeUpdate();
 	if (rs != null)
 		rs.close();
     if (pstmt != null)
         pstmt.close();
 	if (conn != null)
 		conn.close();
+
+        response.sendRedirect("member_view.jsp");
  %>

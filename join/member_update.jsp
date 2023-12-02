@@ -96,7 +96,7 @@
      <div class="col-sm-offset-2 col-sm-10">
             
        </div>
-     <form id="userDeleteForm" action="member_delte_process.jsp" >
+     <form id="userDeleteForm" action="member_delete_process.jsp" action="post">
             <input type="text" name="id" value="<%=rs.getString("id")%>" readonly style="display: none;">
          <div class="form-group row">
                <div class="col-sm-offset-2 col-sm-10">
