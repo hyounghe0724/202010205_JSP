@@ -20,17 +20,14 @@
         <a class="navbar-brand" href="../index.jsp">상품목록(기본 홈)</a>
     </button>
         <button  class="btn " style="background-color: white; ">
-            <a href="../admin/index_ad.jsp" >로그인 </a>
+            <a class="navbar-brand" href="login/login_user.jsp" >로그인 </a>
     </button>
     <button class="btn " style="background-color: white; ">
             <a class="navbar-brand" href="/BoardListAction.do?pageNum=1">게시판(고객센터)</a>
        </button>
-    <button class="btn " style="background-color: white;">
-            <a href="#"></a>
-    </button>
-    <button class="btn " style="background-color: white;">
-            고객센터
-    </button>
+        <button class="btn " style="background-color: white; ">
+            <a class="navbar-brand" href="../join/member_join.jsp">회원가입</a>
+       </button>
     <button>
          <a class="btn " href="../admin/index_ad.jsp">
             관리자 모드

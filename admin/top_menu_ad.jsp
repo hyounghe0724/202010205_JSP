@@ -17,9 +17,8 @@
    <div class="container">
         <div calss ="navbar-header">
             <a class="navbar-brand"href="../login/login.jsp" style="background-color: white; ">로그인</a>
-            <a class="navbar-brand"href="#"  style="background-color: white;">회원가입</a>
-            <a class="navbar-brand" href="#"  style="background-color: white;">고객센터</a>
-            <a class="navbar-brand" href="./index.jsp">회원 보기/추가/수정/삭제</a>
+            <a class="navbar-brand" href="../BoardListAction.do?pageNum=1"  style="background-color: white;">고객센터</a>
+            <a class="navbar-brand" href="../index.jsp">회원 보기/추가/수정/삭제</a>
             <a class="navbar-brand" href="index_ad.jsp">상품 보기</a>
             <a class="navbar-brand" href="product_add.jsp">등록</a>
             <a class="navbar-brand" href="product_edit.jsp?edit=update">수정</a>

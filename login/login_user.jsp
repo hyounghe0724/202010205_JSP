@@ -10,7 +10,7 @@
 	<jsp:include page="../top_menu.jsp" />
 	<div class="jumbotron">
 		<div class="container">
-			<h1 class="display-3">상품 등록 페이지 접근 - 로그인이 필요합니다.</h1>
+			<h1 class="display-3">일반 사용자 접근 - 로그인이 필요합니다.</h1>
 		</div>
 	</div>
 	<div class="container" align="center">
@@ -24,7 +24,7 @@
 					out.println("</div>");
 				}
 			%> 
-        <form class="form-signin" action="j_security_check" method="post">
+<form class="form-signin" action="j_security_check" method="post">
 			<div class="form-group">
 				<label for="j_username" class="sr-only">User Name</label> 
 				<input type="text" class="form-control" placeholder="ID" name='j_username' required autofocus>
