@@ -8,7 +8,7 @@
   		<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     		카테고리
   		</button>
-        
+        <% HttpSession userSession = request.getSession(); %>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <a class="dropdown-item" href="#">Galaxy SmartPhone</a>    
         <a class="dropdown-item" href="#">Galaxy FilpZ</a>
@@ -19,9 +19,21 @@
     <button  class="btn " style="background-color: white; ">
         <a class="navbar-brand" href="../index.jsp">상품목록(기본 홈)</a>
     </button>
-        <button  class="btn " style="background-color: white; ">
-            <a class="navbar-brand" href="login/login_user.jsp" >로그인 </a>
-    </button>
+       <% if (session.getAttribute("isLogined") != null) { %>
+            <button class="btn"  style="background-color: white; display: none;" >
+                <a class="navbar-brand" href="../login/login_user.jsp" >로그인 </a>
+           </button>
+            <button class="btn"  style="background-color: white; " >
+                <a class="navbar-brand" href="#" >로그아웃</a>
+           </button>
+        <% } else { %>
+             <button class="btn"  style="background-color: white; " >
+                <a class="navbar-brand" href="../login/login_user.jsp" >로그인 </a>
+           </button>
+             <button class="btn"  style="background-color: white; display: none;" >
+                <a class="navbar-brand" href="#" >로그아웃 </a>
+           </button>
+        <% } %>    
     <button class="btn " style="background-color: white; ">
             <a class="navbar-brand" href="/BoardListAction.do?pageNum=1">게시판(고객센터)</a>
        </button>
@@ -33,6 +45,7 @@
             관리자 모드
     </a>
        </button>
+       
        
     
     </div>
