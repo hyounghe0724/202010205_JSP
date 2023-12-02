@@ -17,7 +17,7 @@ pstmt.setString(1, userId);
 pstmt.setString(2, password);
 ResultSet user = pstmt.executeQuery();
 
-// 조회된 사용자 정보를 세션에 저장
+// 조회된 사용자 정보를 세션에 저장 2번
 if (user.next()) {
     String id = user.getString("id");
     String name = user.getString("name");

@@ -77,6 +77,13 @@
 </body>
 <script>
 	window.open("popup/popup1.jsp", "popup", "width=365, height = 250, left = 0, top=0")
+    <script>
+const logout => () {
+  <% 
+session.invalidate();
+%>
+    location.reload();
+}
 </script>
 
 </html>

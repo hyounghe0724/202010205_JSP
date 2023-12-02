@@ -18,20 +18,20 @@
    <div >
     <button  class="btn " style="background-color: white; ">
         <a class="navbar-brand" href="../index.jsp">상품목록(기본 홈)</a>
-    </button>
-       <% if (session.getAttribute("isLogined") != null) { %>
+    </button> 
+       <% if (session.getAttribute("isLogined") != null) { // 3번 %>
             <button class="btn"  style="background-color: white; display: none;" >
                 <a class="navbar-brand" href="../login/login_user.jsp" >로그인 </a>
            </button>
-            <button class="btn"  style="background-color: white; " >
-                <a class="navbar-brand" href="#" >로그아웃</a>
+            <button class="btn"  style="background-color: white; " onclick="logout()">
+                <a class="navbar-brand" href="../login/logout.jsp" >로그아웃</a>
            </button>
         <% } else { %>
              <button class="btn"  style="background-color: white; " >
                 <a class="navbar-brand" href="../login/login_user.jsp" >로그인 </a>
            </button>
-             <button class="btn"  style="background-color: white; display: none;" >
-                <a class="navbar-brand" href="#" >로그아웃 </a>
+             <button class="btn"  style="background-color: white; display: none;"   onclick="logout()">
+                <a class="navbar-brand" href="../login/logout.jsp" >로그아웃 </a>
            </button>
         <% } %>    
     <button class="btn " style="background-color: white; ">
@@ -44,9 +44,17 @@
          <a class="btn " href="../admin/index_ad.jsp">
             관리자 모드
     </a>
+         
        </button>
-       
-       
-    
+      
+   
+    </div>
+    <div style="width: 200px;">
+    </div>
+    <div class="position-relative top-0 start-0">
+        <% if(session.getAttribute("isLogined") != null) { %>
+         <span class="col-12"><%= session.getAttribute("userName") %></span> 
+        <a class="col-12" href="#">마이페이지</a>
+       <% } %>
     </div>
 	</nav>
