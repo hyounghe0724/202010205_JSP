@@ -24,7 +24,7 @@
 	pstmt = conn.prepareStatement(sql);
 	pstmt.setString(1, productId);
 	rs = pstmt.executeQuery();
-	if (rs.next()) {
+	if (rs.next()){
    %>
  <div class="container">
       <div class="row">
@@ -100,10 +100,10 @@
 	}
 	if (rs != null)
 		rs.close();
-		if (pstmt != null)
-			pstmt.close();
+    if (pstmt != null)
+        pstmt.close();
 	if (conn != null)
-		conn.close();
+	    conn.close();
  %>
  <hr>
  <jsp:include page="footer_ad.jsp" />
