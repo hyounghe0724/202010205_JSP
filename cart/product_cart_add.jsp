@@ -1,50 +1,51 @@
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="dto.Product"%>
 <%@ page import="dao.ProductRepository"%>
+<%@ include file="../db/db_conn.jsp"%>
 <%
-	String id = request.getParameter("id");
-	if (id == null || id.trim().equals("")) {
-		response.sendRedirect("../index.jsp");
-		return;
-	}
+    String id = request.getParameter("id");
+    if (id == null || id.trim().equals("")) {
+        response.sendRedirect("../index.jsp");
+        return;
+    }
+    
 
-	ProductRepository dao = ProductRepository.getInstance();
+        String sql = "select * from product where p_id = ?"; // 조회
+		pstmt = conn.prepareStatement(sql); // 연결 생성
+        pstmt.setString(1, id);
+		rs = pstmt.executeQuery(); // 쿼리 실행
+    if(rs.next()){
+    if (rs == null) {
+        response.sendRedirect("../exception/product_not_found.jsp");
+        return; // sendRedirect() 호출 후 return 문을 추가하여 메서드를 종료
+    }
 
-	Product product = dao.getProductById(id);
-	if (product == null) {
-		response.sendRedirect("../exception/product_not_found.jsp");
-	}
+    
+        
+    Product goods = new Product();
+    goods.setProductId(rs.getString("p_id"));
+    goods.setPname(rs.getString("p_name"));
+    goods.setUnitPrice(rs.getInt("p_unitPrice"));
+    goods.setDescription(rs.getString("p_description"));
+    goods.setCategory(rs.getString("p_category"));
+    goods.setManufacturer(rs.getString("p_manufacturer"));
+    goods.setUnitInStock(rs.getLong("p_unitsInStock"));
+    goods.setCondition(rs.getString("p_condition"));
+    goods.setRootImage(rs.getString("p_fileName"));
 
-	ArrayList<Product> goodsList = dao.getAllProducts();
-	Product goods = new Product();
-	for (int i = 0; i < goodsList.size(); i++) {
-		goods = goodsList.get(i);
-		if (goods.getProductId().equals(id)) { 			
-			break;
-		}
-	}
-    ArrayList<Product> list = (ArrayList<Product>) session.getAttribute("cartlist");
-	if (list == null) { 
-		list = new ArrayList<Product>();
-		session.setAttribute("cartlist", list); // 세션 키, 값 설정
-	}
+    ArrayList<Product> cartList = (ArrayList<Product>) session.getAttribute("cartlist");
+  
+    if (cartList == null) {
+        cartList = new ArrayList<Product>();
+            cartList.add(goods);
+          goods.setQuantity(1);
+        session.setAttribute("cartlist", cartList); // 세션에 "cartlist"라는 키로 ArrayList 객체를 저장합니다.
 
-	int cnt = 0;
-	Product goodsQnt = new Product();
-	for (int i = 0; i < list.size(); i++) {
-		goodsQnt = list.get(i);
-		if (goodsQnt.getProductId().equals(id)) {
-			cnt++;
-			int orderQuantity = goodsQnt.getQuantity() + 1;
-			goodsQnt.setQuantity(orderQuantity);
-		}
-	}
+    }
 
-	if (cnt == 0) { 
-		goods.setQuantity(1);
-		list.add(goods);
-	}
+   
 
-	response.sendRedirect("product_cart.jsp?id=" + id); // 장바구니 화면 페이지로 이동
+    }
+
+    response.sendRedirect("product_cart.jsp?id=" + id); // 장바구니 화면 페이지로 이동
 %>
-

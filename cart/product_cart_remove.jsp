@@ -9,13 +9,13 @@
         response.sendRedirect("../cart/product_cart.jsp");
         return;
     }
-	String id = request.getParameter("id");
+	String id = request.getParameter("id"); 
 	if (id == null || id.trim().equals("")) {
 		response.sendRedirect("../product_detail.jsp");
 		return;
 	}
 
-	ProductRepository dao = ProductRepository.getInstance();
+	ProductRepository dao = ProductRepository.getInstance(); // 리포지토리라는 1개의 인스턴스 가져옴.
 	
 	Product product = dao.getProductById(id);
 	if (product == null) {

@@ -19,7 +19,7 @@
 </script>
 </head>
 <body>
-   <jsp:include page="../admin/top_menu_ad.jsp" />
+   <jsp:include page="../top_menu.jsp" />
    <div class="jumbotron">
 	<div class="container">
 		<h1 class="display-3">유저 정보 수정</h1>
@@ -118,6 +118,6 @@
 		conn.close();
  %>
  <hr>
- <jsp:include page="../admin/footer_ad.jsp" />
+ <jsp:include page="../footer.jsp" />
 </body>
 </html>

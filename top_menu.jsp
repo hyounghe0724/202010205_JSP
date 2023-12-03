@@ -53,8 +53,8 @@
     </div>
     <div class="position-relative top-0 start-0">
         <% if(session.getAttribute("isLogined") != null) { %>
-         <span class="col-12"><%= session.getAttribute("userName") %></span> 
-        <a class="col-12" href="#">마이페이지</a>
+         <span class="col-12"><%= session.getAttribute("name") %></span> 
+        <a class="col-12" href="./my_page.jsp">마이페이지</a>
        <% } %>
     </div>
 	</nav>

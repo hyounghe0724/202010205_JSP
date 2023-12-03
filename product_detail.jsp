@@ -4,6 +4,7 @@
 <%@ page errorPage = "exception/product_not_found.jsp" %>
 <%@ page import="example.*" %>
 <%@ page import="dao.ProductRepository"%>
+<%@ include file="db/db_conn.jsp"%>
 
 <jsp:useBean id="productDAO" class="dao.ProductRepository" scope="session" />
 <html>
@@ -37,26 +38,32 @@
 		String id = request.getParameter("id");
 		ProductRepository dao = ProductRepository.getInstance();
 		Product product = dao.getProductById(id); 
-%>
+    
+		String sql = "select * from product where p_id = ?"; // 조회
+		pstmt = conn.prepareStatement(sql); // 연결 생성
+        pstmt.setString(1, id);
+		rs = pstmt.executeQuery(); // 쿼리 실행
+    if(rs.next()){
+	%>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4">
-				 <h3><%=product.getPname()%></h3>
-				<p><%=product.getDescription()%>
-				<p><b>상품 코드 : </b><span class="badge badge-danger"> <%=product.getProductId()%></span>
-				<p><b>제조사</b> : <%=product.getManufacturer()%>
-				<p><b>분류</b> : <%=product.getCategory()%>
-				<p><b>재고 수</b> : <%=product.getUnitInStock()%>
-				<h4><%=product.getUnitPrice()%>원</h4>
+				 <h3><%=rs.getString("p_name")%></h3>
+				<p><%=rs.getString("p_description")%>
+				<p><b>상품 코드 : </b><span class="badge badge-danger"> <%=rs.getString("p_id")%></span>
+				<p><b>제조사</b> : <%=rs.getString("p_manufacturer")%>
+				<p><b>분류</b> : <%=rs.getString("p_category")%>
+				<p><b>재고 수</b> : <%=rs.getString("p_unitsInstock")%>
+				<h4><%=rs.getString("p_unitPrice")%>원</h4>
                 
                 <p>
-                <form name="addForm" action="./cart/product_cart_add.jsp?id=<%=product.getProductId()%>" method="post">
+                <form name="addForm" action="./cart/product_cart_add.jsp?id=<%=rs.getString("p_id")%>" method="post">
 			        <button class="btn btn-info" onclick="addToCart()"> 장바구니 추가 &raquo;</button> 
                     <a href="./cart/product_cart.jsp" class="btn btn-warning"> 장바구니 &raquo;</a>
 	            </form>
 
         <div class="card bg-dark text-white">
-                    <img src="image/product/<%=product.getFilename()%>" class="card-img" alt="...">
+                    <img src="image/product/<%=rs.getString("p_fileName")%>" class="card-img" alt="...">
                     <div class="card-img-overlay">
                     <p class="card-text">출처 : 구글 검색</p>
                     </div>
@@ -65,7 +72,15 @@
 		</div>
 		</div>
 		<hr>
-            
+            <%
+        }
+		if (rs != null)
+			rs.close();
+ 		if (pstmt != null)
+ 			pstmt.close();
+ 		if (conn != null)
+			conn.close();
+	%>
 
 	</div>
     <%@ include file="footer.jsp" %>
