@@ -11,7 +11,8 @@
 	String shipping_cartId = "";
 	String shipping_name = "";
 	String shipping_shippingDate = "";
-	String shipping_country = "";
+	String shipping_secondeAddressName = "";	
+    String shipping_reference = "";
 	String shipping_zipCode = "";
 	String shipping_addressName = "";
 	
@@ -27,8 +28,10 @@
 				shipping_name = URLDecoder.decode((thisCookie.getValue()), "utf-8");
 			if (n.equals("Shipping_shippingDate"))
 				shipping_shippingDate = URLDecoder.decode((thisCookie.getValue()), "utf-8");
-			if (n.equals("Shipping_country"))
-				shipping_country = URLDecoder.decode((thisCookie.getValue()), "utf-8");
+			if (n.equals("Shipping_secondeAddressName"))
+				shipping_secondeAddressName = URLDecoder.decode((thisCookie.getValue()), "utf-8");
+            if (n.equals("Shipping_reference"))
+				shipping_reference = URLDecoder.decode((thisCookie.getValue()), "utf-8");
 			if (n.equals("Shipping_zipCode"))
 				shipping_zipCode = URLDecoder.decode((thisCookie.getValue()), "utf-8");
 			if (n.equals("Shipping_addressName"))
@@ -61,7 +64,11 @@
 		<div class="col-4" align="left">
 			<strong>배송 주소</strong> <br> 성명 : <% out.println(shipping_name); %>	<br> 
 			우편번호 : <% out.println(shipping_zipCode);%><br> 
-			주소 : <% out.println(shipping_addressName);%>(<% out.println(shipping_country);%>) <br>
+			주소 : <% out.println(shipping_addressName);%>
+            (<% out.println(shipping_secondeAddressName);%>)            
+            (<% out.println(shipping_reference);%>)
+
+            <br>
 		</div>
 		<div class="col-4" align="right">
 			<p>	<em>배송일: <% out.println(shipping_shippingDate);%></em>
