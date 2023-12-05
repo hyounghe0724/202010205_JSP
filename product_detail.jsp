@@ -39,7 +39,7 @@
 		ProductRepository dao = ProductRepository.getInstance();
 		Product product = dao.getProductById(id); 
     
-		String sql = "select * from product where p_id = ?"; // 조회
+	    String sql = "select * from product where p_id = ?"; // 조회
 		pstmt = conn.prepareStatement(sql); // 연결 생성
         pstmt.setString(1, id);
 		rs = pstmt.executeQuery(); // 쿼리 실행

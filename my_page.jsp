@@ -9,8 +9,8 @@
 <%@ include file="db/db_conn.jsp"%>
 <%
   // UserSession 객체에서 사용자 로그인 정보를 가져옵니다.
-     String id = request.getParameter("id");
-    if (id == null || id.trim().equals("")) {
+     String userId = request.getParameter("id");
+    if (userId == null || userId.trim().equals("")) {
         response.sendRedirect("../index.jsp");
         return;
     }
@@ -18,10 +18,33 @@
 
         String sql = "select * from member where id = ?"; // 조회
 		pstmt = conn.prepareStatement(sql); // 연결 생성
-        pstmt.setString(1, id);
+        pstmt.setString(1, userId);
 		rs = pstmt.executeQuery(); // 쿼리 실행
 
     if(rs.next()){
+        UserSession user = new UserSession();
+
+
+        String name = rs.getString("name");
+        String gender = rs.getString("gender");
+        String birth = rs.getString("birth");
+        String email = rs.getString("mail");
+        String phone = rs.getString("phone");
+        String address = rs.getString("address");
+        String registDay = rs.getString("regist_day");
+
+        // 세션에 사용자 정보 저장
+        user.setId(userId);
+        user.setName(name);
+        user.setGender(gender);
+        user.setBirth(birth);
+        user.setEmail(email);
+        user.setPhone(phone);
+        user.setAddress(address);
+        user.setRegistDay(registDay);
+
+
+        session.setAttribute("userSession", user);
 	%>
 
 <html>
