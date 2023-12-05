@@ -34,7 +34,7 @@ public class Board_controller extends HttpServlet {
 			requestBoardList(request);
 			RequestDispatcher rd = request.getRequestDispatcher("./board/board_list.jsp");
 			rd.forward(request, response);
-		} else if (command.equals("/BoardWriteForm.do")) { // 글 등록 페이지 출력하기
+		} else if (command.equals("/BoardWriteForm.do")) { // 글 등록 페이지 출력하기, form action.
 				requestLoginName(request);
 				RequestDispatcher rd = request.getRequestDispatcher("./board/board_writeform.jsp");
 				rd.forward(request, response);				

@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=utf-8"%>
-
+<%@ page import ="dto.UserSession" %>
 <nav class="navbar navbar-expand  navbar-white bg-white">
     <div style="margin-right: 20px; ">
         <img src="https://www.samsung.com/sec/static/_images/gnb/logo-gnb.svg" class="img-fluid" alt="main_image">
@@ -8,7 +8,7 @@
   		<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     		카테고리
   		</button>
-        <% HttpSession userSession = request.getSession(); %>
+        <% UserSession loginUser = (UserSession) session.getAttribute("userSession"); %>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <a class="dropdown-item" href="#">Galaxy SmartPhone</a>    
         <a class="dropdown-item" href="#">Galaxy FilpZ</a>
@@ -19,7 +19,7 @@
     <button  class="btn " style="background-color: white; ">
         <a class="navbar-brand" href="../index.jsp">상품목록(기본 홈)</a>
     </button> 
-       <% if (session.getAttribute("isLogined") != null) { // 3번 %>
+       <% if (loginUser != null) { // 3번 %>
             <button class="btn"  style="background-color: white; display: none;" >
                 <a class="navbar-brand" href="../login/login_user.jsp" >로그인 </a>
            </button>
@@ -52,9 +52,9 @@
     <div style="width: 200px;">
     </div>
     <div class="position-relative top-0 start-0">
-        <% if(session.getAttribute("isLogined") != null) { %>
-         <span class="col-12"><%= session.getAttribute("name") %></span> 
-        <a class="col-12" href="./my_page.jsp">마이페이지</a>
+        <%  if(loginUser != null) { %>
+         <span class="col-12"><%=  loginUser.getName() %></span> 
+        <a class="col-12" href="./my_page.jsp?id=<%=loginUser.getId()%>">마이페이지</a>
        <% } %>
     </div>
 	</nav>

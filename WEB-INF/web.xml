@@ -12,8 +12,8 @@
 			<url-pattern>/admin/product_add.jsp</url-pattern>
             <url-pattern>/admin/index_ad.jsp</url-pattern>
             <url-pattern>/admin/product_edit.jsp</url-pattern>
-            <url-pattern>/login/login.jsp</url-pattern>
-            <url-pattern>/login/login_failed.jsp</url-pattern>
+             <url-pattern>/login/login.jsp</url-pattern>
+             <url-pattern>/login/login_failed.jsp</url-pattern>
 
 
 		</web-resource-collection>

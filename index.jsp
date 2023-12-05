@@ -1,4 +1,5 @@
 <%@ page errorPage = "exception/product_not_found.jsp" %>
+<%@ page import ="dto.UserSession" %>
 
 <html>
 <head>
